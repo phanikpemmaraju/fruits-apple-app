@@ -100,12 +100,20 @@ public class AppleTest {
 		assertEquals(objectUnderTest.getWeight().intValue(),100);
 	}
 	
+	@Test(expected=NullPointerException.class)
+	public void GivenNoApple_ThenEat_ShouldReturnException() {
+		objectUnderTest = null;
+		
+		assertFalse(objectUnderTest.eat());
+	}
+	
+	
 	@Test
-	public void GivenApple_ThenEat_ShouldReturnTrue() {
+	public void GivenApple_ThenEat_ShouldPeelReturnTrue() {
 		objectUnderTest = new Apple(Colour.BLUE,100,Taste.THREE,false);
 		
 		assertNotNull(objectUnderTest);
-		assertNotNull(objectUnderTest.eat());
+		assertTrue(objectUnderTest.eat());
 	}
 	
 	@Test(expected=NullPointerException.class)

@@ -11,6 +11,8 @@ public class Apple {
 	}
 		
 	public Boolean eat(){
+		getPeeled();
+		
 		return true;
 	}
 	
