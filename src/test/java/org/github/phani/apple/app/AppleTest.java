@@ -9,18 +9,15 @@ import org.junit.Test;
 public class AppleTest {
 	
 	private Apple objectUnderTest;
-	private PeelerFactory peelerFactory;
 
 	@Before
 	public void setUp() throws Exception {
 		objectUnderTest = new Apple();
-		peelerFactory = new PeelerFactory();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		objectUnderTest = null;
-		peelerFactory = null;
 	}
 
 	@Test
@@ -108,25 +105,24 @@ public class AppleTest {
 		objectUnderTest = new Apple(Colour.BLUE,100,Taste.THREE,false);
 		
 		assertNotNull(objectUnderTest);
-		assertTrue(objectUnderTest.eat(objectUnderTest));
+		assertNotNull(objectUnderTest.eat());
 	}
 	
-	@Test
-	public void GivenAppleWithNoPeeler_ShouldReturnFalse() {
-		objectUnderTest = new Apple(Colour.BLUE,100,Taste.THREE,false);
-		
-		Peeler peeler = null;
-		assertNotNull(objectUnderTest);
-		assertFalse(objectUnderTest.peelApple(peeler, objectUnderTest));
+	@Test(expected=NullPointerException.class)
+	public void GivenEmptyAppleToPeel_ShouldReturnException() {
+		objectUnderTest = null;
+		objectUnderTest.getPeeled();
 	}
+
 	
 	@Test
-	public void GivenAppleWithPeeler_ShouldReturnTrue() {
+	public void GivenApple_ThenPeel_ShouldReturnApple() {
 		objectUnderTest = new Apple(Colour.BLUE,100,Taste.THREE,false);
 		
-		Peeler peeler = peelerFactory.getPeeler();
 		assertNotNull(objectUnderTest);
-		assertTrue(objectUnderTest.peelApple(peeler, objectUnderTest));
+		assertNotNull(objectUnderTest.getPeeled());
 	}
+
+		
 
 }

@@ -1,7 +1,10 @@
 package org.github.phani.apple.app;
 
-public interface Peeler {
-		
-	Apple getPeeled(Apple apple);
+public class Peeler {
+	
+	static Apple peel(Apple apple) {
+		return apple;
+	}
+
 
 }

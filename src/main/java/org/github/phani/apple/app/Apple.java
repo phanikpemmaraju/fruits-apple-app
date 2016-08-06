@@ -10,18 +10,14 @@ public class Apple {
 	public Apple(){		
 	}
 		
-	public Boolean eat(Apple apple){
+	public Boolean eat(){
 		return true;
 	}
 	
-	public Boolean peelApple(Peeler peeler,Apple apple){
-		if( peeler == null || peeler.getPeeled(apple) == null)
-			return false;
-		
-		return true;
-		
+	public Apple getPeeled(){
+		return Peeler.peel(this);
 	}
-	
+		
 	public Apple(Colour colour,Integer weight,Taste taste,Boolean isWorm){
 		this.colour = colour;
 		this.taste = taste;
