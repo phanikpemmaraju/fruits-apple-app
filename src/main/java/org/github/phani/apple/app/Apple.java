@@ -2,15 +2,27 @@ package org.github.phani.apple.app;
 
 public class Apple {
 	
-	private String colour;
+	private Colour colour;
 	private Integer weight;
 	private Taste taste;
 	private Boolean isWorm;
 
 	public Apple(){		
 	}
+		
+	public Boolean eat(Apple apple){
+		return true;
+	}
 	
-	public Apple(String colour,Integer weight,Taste taste,Boolean isWorm){
+	public Boolean peelApple(Peeler peeler,Apple apple){
+		if( peeler == null || peeler.getPeeled(apple) == null)
+			return false;
+		
+		return true;
+		
+	}
+	
+	public Apple(Colour colour,Integer weight,Taste taste,Boolean isWorm){
 		this.colour = colour;
 		this.taste = taste;
 		this.isWorm = isWorm;
@@ -19,10 +31,10 @@ public class Apple {
 		this.weight = weight;
 	}
 	
-	public String getColour() {
+	public Colour getColour() {
 		return colour;
 	}
-	public void setColour(String colour) {
+	public void setColour(Colour colour) {
 		this.colour = colour;
 	}
 	public Integer getWeight() {
@@ -45,7 +57,7 @@ public class Apple {
 	public void setIsWorm(Boolean isWorm) {
 		this.isWorm = isWorm;
 	}
-
+	
 
 	@Override
 	public int hashCode() {
