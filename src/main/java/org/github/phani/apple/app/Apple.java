@@ -12,9 +12,11 @@ public class Apple {
 	
 	public Apple(String colour,Integer weight,Taste taste,Boolean isWorm){
 		this.colour = colour;
-		this.weight = weight;
 		this.taste = taste;
 		this.isWorm = isWorm;
+		if(weight < 10 || weight > 100)
+			throw new IllegalArgumentException("Illegal weight value : " + Integer.toString(weight) + " provided. Valid values are between 10 and 100 inclusive");
+		this.weight = weight;
 	}
 	
 	public String getColour() {

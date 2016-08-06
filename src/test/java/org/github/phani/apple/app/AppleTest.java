@@ -68,6 +68,35 @@ public class AppleTest {
 		assertNotNull(objectUnderTest);
 		assertTrue(objectUnderTest.getIsWorm());
 	}
+	
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void GivenAppleWithLessWeight_ShouldReturnException() {
+		objectUnderTest = new Apple("red",9,Taste.FOUR,true);
+		assertNotNull(objectUnderTest);
+		assertEquals(objectUnderTest.getWeight().intValue(),9);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void GivenAppleWithMoreWeight_ShouldReturnException() {
+		objectUnderTest = new Apple("green",110,Taste.ONE,true);
+		assertNotNull(objectUnderTest);
+		assertEquals(objectUnderTest.getWeight().intValue(),110);
+	}
+	
+	@Test
+	public void GivenAppleWithMinWeight_ShouldReturnApple() {
+		objectUnderTest = new Apple("blue",10,Taste.TWO,false);
+		assertNotNull(objectUnderTest);
+		assertEquals(objectUnderTest.getWeight().intValue(),10);
+	}
+	
+	@Test
+	public void GivenAppleWithMaxWeight_ShouldReturnApple() {
+		objectUnderTest = new Apple("white",100,Taste.THREE,false);
+		assertNotNull(objectUnderTest);
+		assertEquals(objectUnderTest.getWeight().intValue(),100);
+	}
 
 
 }
