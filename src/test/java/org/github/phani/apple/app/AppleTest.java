@@ -124,12 +124,29 @@ public class AppleTest {
 
 	
 	@Test
-	public void GivenApple_ThenPeel_ShouldReturnApple() {
+	public void GivenInvalidTasteApple_ThenPeel_ShouldReturnNull() {
 		objectUnderTest = new Apple(Colour.BLUE,100,Taste.THREE,false);
+		
+		assertNotNull(objectUnderTest);
+		assertNull(objectUnderTest.getPeeled());
+	}
+	
+	@Test
+	public void GivenAppleWithWorm_ThenPeel_ShouldReturnNull() {
+		objectUnderTest = new Apple(Colour.BLUE,100,Taste.FOUR,true);
+		
+		assertNotNull(objectUnderTest);
+		assertNull(objectUnderTest.getPeeled());
+	}
+
+	@Test
+	public void GivenApple_ThenPeel_ShouldReturnTrue() {
+		objectUnderTest = new Apple(Colour.BLUE,100,Taste.FOUR,false);
 		
 		assertNotNull(objectUnderTest);
 		assertNotNull(objectUnderTest.getPeeled());
 	}
+
 
 		
 
