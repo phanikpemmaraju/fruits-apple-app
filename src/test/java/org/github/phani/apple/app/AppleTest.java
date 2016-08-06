@@ -140,14 +140,29 @@ public class AppleTest {
 	}
 
 	@Test
-	public void GivenApple_ThenPeel_ShouldReturnTrue() {
+	public void GivenBlueApple_ThenPeelWithValyrianSteelPeelerType_ShouldReturnTrue() {
 		objectUnderTest = new Apple(Colour.BLUE,100,Taste.FOUR,false);
+		
+		assertNotNull(objectUnderTest);
+		assertNotNull(objectUnderTest.getPeeled());
+	}
+	
+	@Test
+	public void GivenGreenApple_ThenPeelWithAnyPeelerType_ShouldReturnTrue() {
+		objectUnderTest = new Apple(Colour.GREEN,87,Taste.FOUR,false);
+		
+		assertNotNull(objectUnderTest);
+		assertNotNull(objectUnderTest.getPeeled());
+	}
+	
+	@Test
+	public void GivenRedApple_ThenPeelWithAnyPeelerType_ShouldReturnTrue() {
+		objectUnderTest = new Apple(Colour.RED,22,Taste.FOUR,false);
 		
 		assertNotNull(objectUnderTest);
 		assertNotNull(objectUnderTest.getPeeled());
 	}
 
 
-		
 
 }
